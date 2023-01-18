@@ -1,0 +1,6 @@
+---
+- hosts: server2.abc.com
+  remote_user: anik
+  become: yes
+  roles:
+   - webservers

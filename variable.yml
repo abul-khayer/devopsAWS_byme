@@ -1,0 +1,13 @@
+---
+- hosts: server2.abc.com
+  remote_user: anik
+  become: yes
+  vars:
+    pkg: httpd
+  tasks:
+    - name: install {{pkg}} package
+      yum: name= {{pkg}} state=installed
+    - name: copy index.html
+      copy: src=index.html dest=/var/www/html
+    - name: start {{pkg}} service
+      service: name= {{pkg}} state=started
